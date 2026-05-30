@@ -1,3 +1,4 @@
+import { useState } from "react"
 import { Hero3DWebGL as Hero3D } from "@/components/hero-webgl"
 import { FeaturesSection } from "@/components/features-section"
 import { TechnologySection } from "@/components/technology-section"
@@ -9,13 +10,16 @@ import { FAQSection } from "@/components/faq-section"
 import { CTASection } from "@/components/cta-section"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
+import { EstimateModal } from "@/components/estimate-modal"
 
 export default function Index() {
+  const [modalOpen, setModalOpen] = useState(false)
+
   return (
     <div className="dark">
-      <Navbar />
+      <Navbar onEstimateClick={() => setModalOpen(true)} />
       <main>
-        <Hero3D />
+        <Hero3D onEstimateClick={() => setModalOpen(true)} />
         <FeaturesSection />
         <section id="technology">
           <TechnologySection />
@@ -29,9 +33,10 @@ export default function Index() {
         <section id="faq">
           <FAQSection />
         </section>
-        <CTASection />
+        <CTASection onEstimateClick={() => setModalOpen(true)} />
       </main>
       <Footer />
+      <EstimateModal open={modalOpen} onOpenChange={setModalOpen} />
     </div>
   )
 }

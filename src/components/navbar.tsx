@@ -2,7 +2,11 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 
-export function Navbar() {
+interface NavbarProps {
+  onEstimateClick?: () => void
+}
+
+export function Navbar({ onEstimateClick }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
@@ -33,7 +37,9 @@ export function Navbar() {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button className="bg-red-500 hover:bg-red-600 text-white font-geist border-0">Оценить квартиру</Button>
+            <Button onClick={onEstimateClick} className="bg-red-500 hover:bg-red-600 text-white font-geist border-0">
+              Оценить квартиру
+            </Button>
           </div>
 
           {/* Mobile menu button */}
@@ -66,7 +72,10 @@ export function Navbar() {
                 Вопросы
               </a>
               <div className="px-3 py-2">
-                <Button className="w-full bg-red-500 hover:bg-red-600 text-white font-geist border-0">
+                <Button
+                  onClick={() => { onEstimateClick?.(); setIsOpen(false) }}
+                  className="w-full bg-red-500 hover:bg-red-600 text-white font-geist border-0"
+                >
                   Оценить квартиру
                 </Button>
               </div>
