@@ -1,42 +1,43 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import Icon from "@/components/ui/icon"
 
 const features = [
   {
-    title: "Адаптивная нейрообработка",
-    description: "Самооптимизирующиеся алгоритмы, которые обучаются на нейронных паттернах и улучшают интерпретацию сигналов.",
-    icon: "brain",
+    title: "Агрегация с площадок",
+    description: "Автоматически собираем актуальные объявления с ЦИАН, Авито, Яндекс Недвижимости и других площадок — всё в одном запросе.",
+    icon: "Database",
+    badge: "Данные",
+  },
+  {
+    title: "Оценка за 3 клика",
+    description: "Введите адрес, выберите параметры квартиры — и получите рыночную стоимость. Никаких регистраций и долгих форм.",
+    icon: "MousePointerClick",
+    badge: "Быстро",
+  },
+  {
+    title: "Только Москва",
+    description: "Глубокая специализация на московском рынке: учитываем район, станцию метро, класс жилья и инфраструктуру.",
+    icon: "MapPin",
+    badge: "Москва",
+  },
+  {
+    title: "ИИ-анализ рынка",
+    description: "Модели машинного обучения анализируют тысячи аналогов и рассчитывают справедливую цену с учётом рыночных трендов.",
+    icon: "BrainCircuit",
     badge: "ИИ",
   },
   {
-    title: "Медицинская защита",
-    description: "Шифрование по стандартам FDA со сквозной защитой конфиденциальных нейронных данных.",
-    icon: "lock",
-    badge: "Сертификат",
+    title: "Актуальные цены",
+    description: "Данные обновляются ежедневно — оценка отражает реальное состояние рынка, а не устаревшие справочники.",
+    icon: "RefreshCw",
+    badge: "Онлайн",
   },
   {
-    title: "Интуитивное управление",
-    description: "Естественная трансляция мыслей в действия с откликом менее миллисекунды и точностью 99,7%.",
-    icon: "globe",
-    badge: "Точность",
-  },
-  {
-    title: "Предиктивная калибровка",
-    description: "ML-модели, которые предугадывают намерения пользователя и оптимизируют нейронные пути.",
-    icon: "zap",
-    badge: "Умный",
-  },
-  {
-    title: "Биометрическая интеграция",
-    description: "Бесшовная синхронизация с мониторингом жизненных показателей для контроля здоровья.",
-    icon: "link",
-    badge: "Связь",
-  },
-  {
-    title: "Поддержка XR",
-    description: "Нативная совместимость с AR/VR-средами для терапевтических и рабочих приложений.",
-    icon: "target",
-    badge: "XR Ready",
+    title: "Отчёт в один клик",
+    description: "Готовый PDF-отчёт с аналогами, графиком цен и обоснованием стоимости — для себя или для переговоров.",
+    icon: "FileText",
+    badge: "Отчёт",
   },
 ]
 
@@ -45,9 +46,9 @@ export function FeaturesSection() {
     <section className="py-24 px-6 bg-background">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-foreground mb-4 font-sans">Возможности нового поколения</h2>
+          <h2 className="text-4xl font-bold text-foreground mb-4 font-sans">Как это работает</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Почувствуйте будущее с технологиями, которые переопределяют возможное
+            Быстрая и точная оценка квартиры — без риелторов, без ожидания, без лишних действий
           </p>
         </div>
 
@@ -60,14 +61,7 @@ export function FeaturesSection() {
             >
               <CardHeader>
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-3xl">
-                    {feature.icon === "brain" && "&#129504;"}
-                    {feature.icon === "lock" && "&#128274;"}
-                    {feature.icon === "globe" && "&#127760;"}
-                    {feature.icon === "zap" && "&#9889;"}
-                    {feature.icon === "link" && "&#128279;"}
-                    {feature.icon === "target" && "&#127919;"}
-                  </span>
+                  <Icon name={feature.icon} size={28} className="text-red-500" fallback="Star" />
                   <Badge variant="secondary" className="bg-accent text-accent-foreground">
                     {feature.badge}
                   </Badge>
